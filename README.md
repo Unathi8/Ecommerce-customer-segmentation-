@@ -2,7 +2,7 @@
 
 > An end-to-end **RFM and K-Means customer segmentation** project that converts invoice-level e-commerce transactions into actionable customer groups, Excel reporting, and Power BI-ready data assets.
 
-This portfolio project analyses the UCI Online Retail dataset, which records transactions for a UK-based non-store retailer between 1 December 2010 and 9 December 2011.[1] The reusable pipeline cleans invoice-line data, creates **Recency, Frequency, and Monetary (RFM)** features, applies K-Means clustering, and translates anonymous clusters into practical commercial segments.
+This project analyses the UCI Online Retail dataset, which records transactions for a UK-based non-store retailer between 1 December 2010 and 9 December 2011.[1] The reusable pipeline cleans invoice-line data, creates **Recency, Frequency, and Monetary (RFM)** features, applies K-Means clustering, and translates anonymous clusters into practical commercial segments.
 
 | Project outcome | Verified result |
 | --- | ---: |
@@ -17,17 +17,25 @@ This portfolio project analyses the UCI Online Retail dataset, which records tra
 The objective is to identify meaningful differences in customer purchasing behaviour so that marketing effort can be prioritised. Instead of treating every customer equally, the analysis identifies **Champions**, **Loyal Customers**, **Potential Loyalists**, and **At Risk** customers. Each segment is supplied with a focused retention, growth, conversion, or reactivation recommendation.
 
 ## Analytical workflow
+The source workbook contains invoice-level data, including customer identifier, invoice date, quantity, unit price, and country.[1] The pipeline removes transaction rows that cannot represent a
+completed customer purchase: records with a missing customer identifier, cancellation invoices, zero or negative quantities, zero or negative prices, and exact duplicate rows. Revenue is 
+calculated as `Quantity × UnitPrice`.
 
-The source workbook contains invoice-level data, including customer identifier, invoice date, quantity, unit price, and country.[1] The pipeline removes transaction rows that cannot represent a completed customer purchase: records with a missing customer identifier, cancellation invoices, zero or negative quantities, zero or negative prices, and exact duplicate rows. Revenue is calculated as `Quantity × UnitPrice`.
-
-Customer-level RFM features are then calculated at an analysis snapshot one day after the most recent purchase. **Recency** is the number of days since the customer's last purchase, **Frequency** is the number of distinct completed invoices, and **Monetary** is total completed-purchase revenue. Additional descriptive features—average order value, units purchased, tenure, and modal country—are retained for dashboarding.
+Customer-level RFM features are then calculated at an analysis snapshot one day after the most recent purchase. **Recency** is the number of days since the customer's last purchase, 
+**Frequency** is the number of distinct completed invoices, and **Monetary** is total completed-
+purchase revenue. Additional descriptive features—average order value, units purchased, tenure, and
+modal country—are retained for dashboarding.
 
 | Stage | Implementation | Output |
 | --- | --- | --- |
-| Data preparation | Pandas conversion, validation, de-duplication, and exclusion of invalid purchase lines | Clean, completed customer transactions |
-| Feature engineering | RFM aggregation plus average order value, tenure, units, and country | Customer-level behavioural table |
-| Model selection | K-Means inertia and silhouette diagnostics for `k = 2` through `k = 8` | Elbow-method evidence for four clusters |
-| Segmentation | K-Means with standardised `log1p(RFM)` values, `random_state=42`, and 25 initialisations | Stable cluster assignments |
+| Data preparation | Pandas conversion, validation, de-duplication, and exclusion of invalid 
+purchase lines | Clean, completed customer transactions |
+| Feature engineering | RFM aggregation plus average order value, tenure, units, and country |
+Customer-level behavioural table |
+| Model selection | K-Means inertia and silhouette diagnostics for `k = 2` through `k = 8` | Elbow-
+method evidence for four clusters |
+| Segmentation | K-Means with standardised `log1p(RFM)` values, `random_state=42`, and 25
+initialisations | Stable cluster assignments |
 | Business translation | Deterministic RFM-profile rules map clusters to customer-friendly labels | Four prioritised marketing audiences |
 | Reporting | CSV extracts, Excel workbook, and Power BI field/DAX guide | Portfolio-ready reporting package |
 
