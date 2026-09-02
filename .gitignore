@@ -1,0 +1,17 @@
+# Raw source data is downloaded locally by the setup instructions.
+data/raw/*
+!data/raw/.gitkeep
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Operating system and IDE files
+.DS_Store
+.vscode/
+.idea/
+
+# Temporary notebooks
+.ipynb_checkpoints/

@@ -1,0 +1,5 @@
+Segment,Customers,AvgRecencyDays,AvgFrequency,AvgMonetary,TotalRevenue,AvgOrderValue,AvgTenureDays,CustomerSharePct,RevenueSharePct,SegmentOrder,RecommendedAction
+Champions,731,12.45,13.53,7923.97,5792418.42,616.59,297.1,16.85,65.18,1,"Reward loyalty with VIP access, premium bundles, and referral incentives."
+Loyal Customers,1177,68.03,4.12,1793.44,2110874.6,566.91,192.6,27.13,23.75,2,Use cross-sell offers and loyalty milestones to raise customer lifetime value.
+Potential Loyalists,889,21.98,1.96,493.28,438524.82,278.44,93.81,20.49,4.93,3,Encourage the next purchase with personalized product discovery and time-bound offers.
+At Risk,1541,191.42,1.33,353.92,545391.05,289.57,25.97,35.52,6.14,4,Run a targeted win-back campaign using a compelling reactivation offer and feedback request.

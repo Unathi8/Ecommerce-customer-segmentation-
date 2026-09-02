@@ -1,0 +1,8 @@
+CleaningMetric,RowsOrCustomers
+raw_rows,541909
+dropped_missing_critical_fields,135080
+dropped_cancellations,8905
+dropped_non_positive_transactions,40
+dropped_duplicate_lines,5192
+clean_rows,392692
+customers_after_cleaning,4338
